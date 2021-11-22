@@ -12,5 +12,5 @@ def test_buy_one_stock():
 def test_buy_two_stock():
     p = Portfolio()
     p.buy("IBM", 100, 176.48)
-    p.buy("HPQ", 100, 36.5)
-    assert p.cost() == 21298.0
+    p.buy("HPQ", 100, 36.15)
+    assert p.cost() == 21263.0
