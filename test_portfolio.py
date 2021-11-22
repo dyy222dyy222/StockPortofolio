@@ -1,4 +1,5 @@
 from portfolio import Portfolio
+from portfolio import Shares
 import pytest
 
 def test_empty_portfolio():
@@ -7,13 +8,13 @@ def test_empty_portfolio():
 
 def test_buy_one_stock():
     p = Portfolio()
-    p.buy("IBM", 100, 176.48)
+    p.buy(Shares("IBM", 100, 176.48))
     assert p.cost() == 17648.0
 
 def test_buy_two_stock():
     p = Portfolio()
-    p.buy("IBM", 100, 176.48)
-    p.buy("HPQ", 100, 36.15)
+    p.buy(Shares("IBM", 100, 176.48))
+    p.buy(Shares("HPQ", 100, 36.15))
     assert p.cost() == 21263.0
 
 def test_not_enough_arguments_to_buy():
@@ -25,4 +26,4 @@ def test_not_enough_arguments_to_buy():
 #    else:
 #        assert False
     with pytest.raises(TypeError):
-        p.buy("IBM")
+        p.buy(Shares("IBM"))
